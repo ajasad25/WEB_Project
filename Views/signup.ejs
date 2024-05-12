@@ -15,7 +15,7 @@
             background: #f5f5f5;
             margin: 0;
         }
-        
+
         .card {
             width: 100%;
             max-width: 28rem;
@@ -63,7 +63,8 @@
             margin-right: 5px;
         }
 
-        .first-half, .last-half {
+        .first-half,
+        .last-half {
             display: flex;
             justify-content: space-between;
         }
@@ -84,21 +85,29 @@
         <div class="card-body">
             <h1>Signup</h1>
             <hr>
-            <div class="first-half">
-                <input type="text" class="form-control" placeholder="First name" required>
-                <input type="text" class="form-control" placeholder="Surname" required>
-            </div>
-            <input type="text" class="form-control" placeholder="Email address or phone number" required>
-            <input type="password" class="form-control" placeholder="New password" required>
-            <p>Date of Birth</p>
-            <input type="date" class="form-control">
-            <p>Gender</p>
-            <div class="last-half">
-                <div><input type="radio" name="gender">Male</div>
-                <div><input type="radio" name="gender">Female</div>
-                <div><input type="radio" name="gender">Others</div>
-            </div>
-            <button class="signup-button mt-3">Sign up</button>
+            <form action="/signup" method="post">
+                <div class="first-half">
+                    <input type="text" id="fname" name="fname" class="form-control" placeholder="First name" required>
+                    <input type="text" id="lname" name="lname" class="form-control" placeholder="Last name" required>
+                </div>
+                <input type="text" id="Email" name="Email" class="form-control"
+                    placeholder="Email address or phone number" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="New password"
+                    required>
+                <p>Date of Birth</p>
+                <input type="date" class="form-control" required>
+                <p>Gender</p>
+                <div class="last-half">
+                    <div><input type="radio" name="gender" required>Male</div>
+                    <div><input type="radio" name="gender" required>Female</div>
+                    <div><input type="radio" name="gender" required>Others</div>
+
+                    <div><input class="signup-button mt-3" type="submit" value="Sign up"></div>
+                </div>
+            </form>
+
+            <a href="/login" style="text-decoration: none;padding-top:20px;text-align:center">Already have an
+                account?</a>
         </div>
     </div>
 </body>

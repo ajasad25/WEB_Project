@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .bg-darkblue {
+            background-color: #121b27;
+        }
+    
+        .navbar-transparent {
+            background-color: white;
+        }
+    
+        .vertical-buttons {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%);
+            right: 0;
+            left: 0; /* Center horizontally */
+            text-align: center; /* Center align text */
+            padding: 70px;
+            border-radius: 10px;
+            background-color: #ffffff; /* White */
+        }
+    
+        .vertical-buttons .btn {
+            display: block;
+            margin-bottom: 10px;
+            padding: 30px;
+            background-color: #1c5392; /* Dark blue */
+            color: #ffffff; /* White */
+            border: none;
+        }
+    
+        .vertical-buttons .btn:hover {
+            background-color: #549bb3; /* Dark blue (hover) */
+            color: #fff; /* White (hover) */
+        }
+    
+        .navbar-nav .nav-item .btn {
+            background-color: #1f5485; /* Dark blue */
+            border-color: #1f5485; /* Dark blue */
+            color: #ffffff; /* White */
+        }
+    
+        .navbar-nav .nav-item .btn:hover {
+            background-color: #538fa3; /* Dark blue (hover) */
+            border-color: #265b6d; /* Dark blue (hover) */
+            color: #fff; /* White (hover) */
+        }
+    
+        .navbar-brand img {
+            width: 110px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+    
+        @media (max-width: 768px) {
+            .vertical-buttons {
+                padding: 20px;
+            }
+    
+            .vertical-buttons .btn {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-darkblue">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto d-flex">
+                    <li class="nav-item flex-fill mr-2">
+                        <a class="btn btn-dark px-4 py-2 btn-block" href="#">Home</a>
+                    </li>
+                    <li class="nav-item flex-fill">
+                        <a class="btn btn-dark px-4 py-2 btn-block" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="vertical-buttons">
+        <div>
+            <a class="btn btn-primary btn-lg btn-block mb-3" href="/signup"
+                style="text-decoration: none;color:white">Sign Up</a>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-lg btn-block" href="/login"
+                style="text-decoration: none;color:white">Log In</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('adminBtn').addEventListener('click', function () {
+            window.location.href = '/admin';
+        });
+
+        document.getElementById('userBtn').addEventListener('click', function () {
+            window.location.href = '/user';
+        });
+    </script>
+</body>
+
+</html>

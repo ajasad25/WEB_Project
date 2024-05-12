@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Error</title>
+  <style>
+    @font-face {
+      font-family: "Proxima Nova";
+      src: url('/static/graphics/ProximaNova-Regular.woff2') format('woff2'),
+        url('/static/graphics/ProximaNova-Regular.woff') format('woff');
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body,
+    html {
+      background-color: #fff;
+      color: #36383b;
+      font-family: "Proxima Nova", Arial, sans-serif;
+      font-size: 1rem;
+      height: 100%;
+      -webkit-font-smoothing: antialiased;
+      width: 100%;
+    }
+
+    .content-block {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .content-block .headline {
+      font-weight: bold;
+      font-size: 62px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 375px) {
+      .content-block .headline {
+        font-size: 54px;
+      }
+    }
+
+    .content-block .headline-copy {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .headline-copy a {
+      text-decoration: underline;
+    }
+
+    .image {
+      margin-bottom: 26px;
+      margin-top: 100px;
+    }
+
+    .headline-wrapper {
+      margin: 0 auto;
+      padding-left: 22px;
+      padding-right: 22px;
+      text-align: left;
+      width: 50%;
+    }
+
+    @media (max-width: 1080px) {
+      .headline-wrapper {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .headline-wrapper {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content-block">
+    <img src="https://bitly.com/static/graphics/meditation.png" alt="woman meditating">
+    <div class="headline-wrapper">
+      <h1 class="headline">Something's wrong here.</h1>
+      <p class="headline-copy">
+        Invalid Email or Password.<a href="/signup"> Or create an account</a>.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

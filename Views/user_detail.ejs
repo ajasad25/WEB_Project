@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail</title>
+</head>
+
+<body>
+    <h1>User Detail</h1>
+    <input type="text" name="Email" class="form-control" placeholder="Email address or phone number" required>
+    <input type="submit" class="login-button btn" value="Log in">
+
+    <ul>
+        <li>First Name: <%= user.FirstName %>
+        </li>
+        <li>Last Name: <%= user.LastName %>
+        </li>
+        <li>Email: <%= user.Email %>
+        </li>
+    </ul>
+</body>
+
+</html>
