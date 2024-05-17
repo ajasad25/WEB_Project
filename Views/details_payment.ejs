@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .navbar {
+            height: 70px;
+            background-color: #1f5485;
+        }
+        .navbar-brand img {
+            width: 70px;
+            height: 70px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #549bb3;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+        @media (min-width: 768px) {
+            .container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_detail">User Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/book_flight">Book Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Flight Details</div>
+                    <div class="card-body">
+                        <p><strong>Airline:</strong> <span id="airline"></span></p>
+                        <p><strong>Departure:</strong> <span id="departure"></span></p>
+                        <p><strong>Arrival:</strong> <span id="arrival"></span></p>
+                        <p><strong>Date:</strong> <span id="date"></span></p>
+                        <p><strong>Time to Reach Destination:</strong> <span id="timeToDestination"></span></p>
+                        <p><strong>Luggage Allowance:</strong> <span id="luggageAllowance"></span></p>
+                        <p><strong>Seats Available:</strong> <span id="seatsAvailable"></span></p>
+                        <p><strong>Price:</strong> <span id="price"></span></p>
+                        <hr>
+                        <h4>Payment Voucher</h4>
+                        <form id="paymentForm">
+                            <div class="form-group">
+                                <label for="accountNumber">Account Number:</label>
+                                <input type="text" class="form-control" id="accountNumber" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bankName">Bank Name:</label>
+                                <input type="text" class="form-control" id="bankName" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Confirm Payment</button>
+                        </form>
+                        <hr>
+                        <p>This is your payment voucher. Please keep it safe.</p>
+                        <p>Voucher Code: <span id="voucherCode"></span></p>
+                        <button id="feedbackButton" class="btn btn-primary">Feedback</button>
+                        <button id="doneButton" class="btn btn-secondary">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        // Fetch flight details from URL parameters (assuming the script to fetch URL parameters remains unchanged)
+
+        // Generate random values for time to reach destination, luggage allowance, and price (assuming the script to generate random values remains unchanged)
+
+        // Display flight details on the page (assuming the script to display flight details remains unchanged)
+
+        // Handle form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const accountNumber = document.getElementById('accountNumber').value;
+            const bankName = document.getElementById('bankName').value;
+
+            // Perform payment processing here, if needed
+            // For demonstration, just alert the user with the entered information
+            alert(`Payment confirmed for Account Number: ${accountNumber}, Bank Name: ${bankName}`);
+        });
+        // Fetch flight details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const airline = urlParams.get('airline');
+        const departure = urlParams.get('departure');
+        const arrival = urlParams.get('arrival');
+        const date = urlParams.get('date');
+
+        // Generate random values for time to reach destination, luggage allowance, and price
+        const randomTimeToDestination = Math.floor(Math.random() * (8 - 1 + 1)) + 1; // Random time between 1 to 8 hours
+        const randomLuggageAllowance = Math.floor(Math.random() * (3 - 1 + 1)) + 1; // Random number of checked bags
+        const randomPrice = Math.floor(Math.random() * (500 - 100 + 1)) + 100; // Random price between $100 to $500
+        const voucherCode = Math.random().toString(36).substring(2, 8).toUpperCase(); // Random voucher code
+        const seat = Math.floor(Math.random() * (1000 - 600 + 1)) + 100;
+        // Display flight details on the page
+        document.getElementById('airline').innerText = airline;
+        document.getElementById('departure').innerText = departure;
+        document.getElementById('arrival').innerText = arrival;
+        document.getElementById('date').innerText = date;
+        document.getElementById('timeToDestination').innerText = `${randomTimeToDestination} hours`;
+        document.getElementById('luggageAllowance').innerText = `${randomLuggageAllowance} checked bags`;
+        document.getElementById('seatsAvailable').innerText = `${seat} seats`; // Assuming fixed number of seats for demonstration
+        document.getElementById('price').innerText = `$${randomPrice}`;
+        document.getElementById('voucherCode').innerText = voucherCode;
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const accountNumber = document.getElementById('accountNumber').value;
+            const bankName = document.getElementById('bankName').value;
+
+            // Perform payment processing 
+            alert(`Payment confirmed for Account Number: ${accountNumber}, Bank Name: ${bankName}`);
+        });
+
+        // Redirect to the feedback page on feedback button click
+        document.getElementById('feedbackButton').addEventListener('click', function() {
+            window.location.href = '/feedback';
+        });
+
+        document.getElementById('doneButton').addEventListener('click', function() {
+            alert('Thank you for choosing us!');
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

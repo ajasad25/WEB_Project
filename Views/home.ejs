@@ -93,7 +93,7 @@
             <a class="btn btn-dark px-4 py-2 btn-block" href="/about">About</a>
           </li>
           <li class="nav-item flex-fill">
-            <a class="btn btn-dark px-4 py-2 btn-block" href="#">Help</a>
+            <a class="btn btn-dark px-4 py-2 btn-block" id="helpBtn">Help</a>
           </li>
         </ul>
       </div>
@@ -101,7 +101,7 @@
   </nav>
 
   <div class="vertical-buttons">
-    <button class="btn btn-primary btn-lg btn-block mb-3" id="adminBtn"><a href="#"
+    <button class="btn btn-primary btn-lg btn-block mb-3" id="adminBtn"><a href="\admin_login"
         style="text-decoration: none;color:white">Admin</a></button>
     <button class="btn btn-primary btn-lg btn-block" id="userBtn"><a href="\user"
         style="text-decoration: none;color:white">User</a></button>
@@ -111,13 +111,16 @@
 
   <script>
     document.getElementById('adminBtn').addEventListener('click', function () {
-      window.location.href = '/admin';
+      window.location.href = '/admin_login';
     });
 
     document.getElementById('userBtn').addEventListener('click', function () {
       window.location.href = '/user';
     });
+
+    document.getElementById('helpBtn').addEventListener('click', function() {
+      alert("Procedure for Booking a Flight:\n1. Log in\n2. Go to Book Flight\n3. Reserve Flight and Go to Payment Method");
+    });
   </script>
 </body>
-
 </html>

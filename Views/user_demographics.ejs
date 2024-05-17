@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Demographics - SkyReserve</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            height: 90px;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,.75);
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: rgba(255,255,255,1);
+        }
+
+        .card-header {
+            background-color: #538fa3;
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve Admin
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="\admin_dahboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\user_demographics">User Demographics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">User Demographics</div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Religion</th>
+                                    <th>Nationality</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example Users -->
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Male</td>
+                                    <td>john@example.com</td>
+                                    <td>Christianity</td>
+                                    <td>American</td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>Female</td>
+                                    <td>jane@example.com</td>
+                                    <td>Atheism</td>
+                                    <td>Canadian</td>
+                                </tr>
+                                <!-- Add more users here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

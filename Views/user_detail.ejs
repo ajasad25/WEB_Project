@@ -1,25 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Detail</title>
+    <title>User Account</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .navbar {
+            height: 70px;
+            background-color: #1f5485;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #549bb3;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>User Detail</h1>
-    <input type="text" name="Email" class="form-control" placeholder="Email address or phone number" required>
-    <input type="submit" class="login-button btn" value="Log in">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_detail">User Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/book_flight">Book Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <ul>
-        <li>First Name: <%= user.FirstName %>
-        </li>
-        <li>Last Name: <%= user.LastName %>
-        </li>
-        <li>Email: <%= user.Email %>
-        </li>
-    </ul>
+    <!-- Main Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">User Account Details</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="userName">Name:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="userGender">Gender:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="userNationality">Nationality:</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+
+        // Populate the form with user data
+        document.getElementById('userName').value = userData.name;
+        document.getElementById('userEmail').value = userData.email;
+        document.getElementById('userGender').value = userData.gender;
+        document.getElementById('userNationality').value = userData.nationality;
+    </script>
 </body>
-
 </html>

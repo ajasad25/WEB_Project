@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Flight Results</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .navbar {
+            height: 70px;
+            background-color: #1f5485;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #549bb3;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_detail">User Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/book_flight">Book Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">More Flight Results</div>
+                    <div class="card-body">
+                        <div id="additionalFlightResults"></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-secondary" id="backButton">Back &larr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const departureLocation = localStorage.getItem('departureLocation');
+            const arrivalLocation = localStorage.getItem('arrivalLocation');
+
+            const additionalFlightData = [
+                {
+                    airline: 'Qatar Airways',
+                    departure: departureLocation,
+                    arrival: arrivalLocation,
+                    date: '2024-06-03',
+                    departureTime: '05:00 PM'
+                },
+                {
+                    airline: 'British Airways',
+                    departure: departureLocation,
+                    arrival: arrivalLocation,
+                    date: '2024-06-04',
+                    departureTime: '07:00 AM'
+                }
+            ];
+
+            let resultsHtml = '';
+            additionalFlightData.forEach((flight, index) => {
+                resultsHtml += `
+                    <p><strong>Airline:</strong> ${flight.airline}</p>
+                    <p><strong>Departure:</strong> ${flight.departure}</p>
+                    <p><strong>Arrival:</strong> ${flight.arrival}</p>
+                    <p><strong>Date:</strong> ${flight.date}</p>
+                    <p><strong>Time:</strong> ${flight.departureTime}</p>
+                    <button class="btn btn-primary" onclick="selectFlight(${index})">Select Flight</button>
+                    <hr>
+                `;
+            });
+            document.getElementById('additionalFlightResults').innerHTML = resultsHtml;
+        });
+
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        function selectFlight(index) {
+            const additionalFlightData = [
+                {
+                    airline: 'Qatar Airways',
+                    departure: localStorage.getItem('departureLocation'),
+                    arrival: localStorage.getItem('arrivalLocation'),
+                    date: '2024-06-03',
+                    departureTime: '05:00 PM'
+                },
+                {
+                    airline: 'British Airways',
+                    departure: localStorage.getItem('departureLocation'),
+                    arrival: localStorage.getItem('arrivalLocation'),
+                    date: '2024-06-04',
+                    departureTime: '07:00 AM'
+                }
+            ];
+
+            const selectedFlight = additionalFlightData[index];
+            window.location.href = `/details_payment?airline=${selectedFlight.airline}&departure=${selectedFlight.departure}&arrival=${selectedFlight.arrival}&date=${selectedFlight.date}&departureTime=${selectedFlight.departureTime}`;
+        }
+    </script>
+</body>
+</html>

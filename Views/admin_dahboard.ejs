@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SkyReserve</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #549bb3;
+        }
+        .navbar {
+            height: 90px;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,.75);
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: rgba(255,255,255,1);
+        }
+        
+        .clickable-card {
+            cursor: pointer;
+        }
+        .card {
+            background-color: #ffffff;
+            color: #fff;
+        }
+        .card-header {
+            background-color: #538fa3;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-info {
+            background-color: #1f5485;
+            border-color: #1f5485;
+        }
+        .btn-info:hover {
+            background-color: #549bb3;
+            border-color: #549bb3;
+        }
+        .btn-danger {
+            background-color: #ff0000;
+            border-color: #265b6d;
+        }
+        .btn-danger:hover {
+            background-color: #121b27;
+            border-color: #121b27;
+        }
+        table {
+            color: #ffffff;
+        }
+        th {
+            background-color: #ffffff;
+        }
+        tbody tr {
+            background-color: #a3cef7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve Admin
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="\admin_dahboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\user_demographics">User Demographics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md-12">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="card">
+                    <div class="card-header">
+                        Dashboard
+                        <button class="btn btn-sm btn-info" onclick="window.location.href='add_admin.html'">Add Admin</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card text-white bg-primary mb-3 clickable-card" onclick="window.location.href='user_demographics.html'">
+                                    <div class="card-header">User Demographics</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Users: 1500</h5>
+                                        <p class="card-text">Details about user demographics...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card text-white bg-primary mb-3">
+                                    <div class="card-header">Revenue</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">$12,000</h5>
+                                        <p class="card-text">Monthly revenue details...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Management Section -->
+                <div id="user-management" class="card mt-4">
+                    <div class="card-header">
+                        User Management
+                        
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example Users -->
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane@example.com</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <!-- Add more users here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

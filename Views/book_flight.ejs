@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Flight</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .navbar {
+            height: 70px;
+            background-color: #1f5485;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #549bb3;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" class="d-inline-block align-top" alt="SkyReserve Logo">
+            SkyReserve
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_detail">User Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/book_flight">Book Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Search Flights</div>
+                    <div class="card-body">
+                        <form id="flightSearchForm">
+                            <div class="form-group">
+                                <label for="departureLocation">Departure Location:</label>
+                                <input type="text" class="form-control" id="departureLocation" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="arrivalLocation">Arrival Location:</label>
+                                <input type="text" class="form-control" id="arrivalLocation" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-4" id="flightResults"></div>
+                <div class="mt-4">
+                    <button class="btn btn-primary" id="nextPageButton" style="display: none;">Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('flightSearchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const departureLocation = document.getElementById('departureLocation').value;
+            const arrivalLocation = document.getElementById('arrivalLocation').value;
+
+            // Store flight data in localStorage
+            localStorage.setItem('departureLocation', departureLocation);
+            localStorage.setItem('arrivalLocation', arrivalLocation);
+
+            // Simulate fetching flight data from server
+            const flightData = [
+                {
+                    airline: 'Emirates',
+                    departure: departureLocation,
+                    arrival: arrivalLocation,
+                    date: '2024-06-01',
+                    departureTime: '08:00 AM'
+                },
+                {
+                    airline: 'Gulf',
+                    departure: departureLocation,
+                    arrival: arrivalLocation,
+                    date: '2024-06-02',
+                    departureTime: '10:00 PM'
+                }
+            ];
+
+            let resultsHtml = '<div class="card"><div class="card-header">Flight Results</div><div class="card-body">';
+            flightData.forEach((flight, index) => {
+                resultsHtml += `
+                    <p><strong>Airline:</strong> ${flight.airline}</p>
+                    <p><strong>Departure:</strong> ${flight.departure}</p>
+                    <p><strong>Arrival:</strong> ${flight.arrival}</p>
+                    <p><strong>Date:</strong> ${flight.date}</p>
+                    <p><strong>Time:</strong> ${flight.departureTime}</p>
+                    <button class="btn btn-primary" onclick="selectFlight(${index})">Select Flight</button>
+                    <hr>
+                `;
+            });
+            resultsHtml += '</div></div>';
+            document.getElementById('flightResults').innerHTML = resultsHtml;
+
+            // Show the Next button
+            document.getElementById('nextPageButton').style.display = 'block';
+        });
+
+        document.getElementById('nextPageButton').addEventListener('click', function() {
+            window.location.href = '/book_flight2';
+        });
+
+        function selectFlight(index) {
+            const flightData = [
+                {
+                    airline: 'Emirates',
+                    departure: document.getElementById('departureLocation').value,
+                    arrival: document.getElementById('arrivalLocation').value,
+                    date: '2024-06-01',
+                    departureTime: '08:00 AM'
+                },
+                {
+                    airline: 'Gulf',
+                    departure: document.getElementById('departureLocation').value,
+                    arrival: document.getElementById('arrivalLocation').value,
+                    date: '2024-06-02',
+                    departureTime: '10:00 PM'
+                }
+            ];
+
+            const selectedFlight = flightData[index];
+            window.location.href = `/details_payment?airline=${selectedFlight.airline}&departure=${selectedFlight.departure}&arrival=${selectedFlight.arrival}&date=${selectedFlight.date}&departureTime=${selectedFlight.departureTime}`;
+        }
+    </script>
+</body>
+</html>

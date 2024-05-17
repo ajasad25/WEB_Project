@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121b27;
+            color: #ffffff;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            background-color: #538fa3;
+            color: #ffffff;
+        }
+        .card-header {
+            background-color: #265b6d;
+            color: #ffffff;
+        }
+        @media (min-width: 768px) {
+            .container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="#" onclick="history.back();" class="btn btn-secondary">Back</a>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Website Feedback</div>
+                    <div class="card-body">
+                        <form id="feedbackForm">
+                            <div class="form-group">
+                                <label for="design">Design:</label><br>
+                                <input type="checkbox" id="design" name="design" value="Good">
+                                <label for="design">Good</label><br>
+                                <input type="checkbox" id="design" name="design" value="Average">
+                                <label for="design">Average</label><br>
+                                <input type="checkbox" id="design" name="design" value="Poor">
+                                <label for="design">Poor</label><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="usability">Usability:</label><br>
+                                <input type="checkbox" id="usability" name="usability" value="Good">
+                                <label for="usability">Good</label><br>
+                                <input type="checkbox" id="usability" name="usability" value="Average">
+                                <label for="usability">Average</label><br>
+                                <input type="checkbox" id="usability" name="usability" value="Poor">
+                                <label for="usability">Poor</label><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Content:</label><br>
+                                <input type="checkbox" id="content" name="content" value="Good">
+                                <label for="content">Good</label><br>
+                                <input type="checkbox" id="content" name="content" value="Average">
+                                <label for="content">Average</label><br>
+                                <input type="checkbox" id="content" name="content" value="Poor">
+                                <label for="content">Poor</label><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Experience with SkyReserve:</label><br>
+                                <textarea class="form-control" id="experience" name="experience" rows="3"></textarea>
+                            </div>
+                            <button id="feedbackButton" class="btn btn-primary">Submit Feedback</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            // Convert FormData to JSON
+            const feedback = {};
+            for (const [key, value] of formData.entries()) {
+                if (!feedback[key]) {
+                    feedback[key] = [];
+                }
+                feedback[key].push(value);
+            }
+            console.log(feedback);
+            // Send the feedback data to the server or perform other actions
+            // For demonstration, just log the feedback data to the console
+            document.getElementById('feedbackButton').addEventListener('click', function() {
+            alert('Feedback Submitted!');
+        });
+        });
+    </script>
+</body>
+</html>
